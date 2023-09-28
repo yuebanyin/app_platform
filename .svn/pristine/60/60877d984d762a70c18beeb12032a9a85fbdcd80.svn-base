@@ -1,0 +1,25 @@
+.theme-white {
+  /*规范色**/
+  --pc-main-orange-color: #ED610A;
+  --pc-primary-list-color: #656D85;
+  --pc-icon-hover-color: #7B84A2;
+  --pc-white-color: #fff;
+  --pc-list-hover-color: linear-gradient(180deg, #F47A15 0%, rgba(244, 122, 21, 0.20) 100%);
+
+  --pc-btn-primary-color: #303243;
+  --pc-btn-hover-color: #7B84A2;
+  --pc-btn-active-color: #ED610A;
+
+  --pc-btn-primary-gradient-color: linear-gradient(90deg, #ED610A 6.3%, #FFB100 102.61%);
+  --pc-btn-active-gradient-color: linear-gradient(90deg, #ED610A 22.36%, #FFB100 43.42%, #ED610A 64.99%);
+
+  --pc-content-bg-color: #181B29;
+  --pc-menu-bg-color: #272937;  
+
+  /*规范未给出颜色**/ 
+  --pc-input-search:#24262C;
+  --pc-sign-bg-color: #19191A47;
+  --pc-menu-action-bg: #383b50ff;
+  --pc-menu-active-bg: linear-gradient(270deg, rgba(244, 122, 21, 0.22) 8.7%, rgba(244, 122, 21, 0.00) 112.17%);
+  
+}

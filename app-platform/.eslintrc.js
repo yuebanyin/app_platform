@@ -79,6 +79,8 @@ module.exports = {
     'react/require-default-props': 0,
     'no-continue': 0,
     'jsx-a11y/media-has-caption': 0,
+    'react/function-component-definition':'off',
+    
   },
   env: {
     browser: true,

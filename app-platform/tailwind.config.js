@@ -29,6 +29,9 @@ module.exports = {
       gameBlock: 'var(--pc-gameblock-color)',
       gameBlockBg: 'var(--pc-gameblock-bg)',
     },
+    bottom: {
+      76: '4.75rem',
+    },
     extend: {
       backgroundImage: {
         btnGradPrimary: 'var(--pc-btn-primary-gradient-color)',
@@ -63,6 +66,7 @@ module.exports = {
         322: '20.125rem',
         338: '21.125rem',
         400: '25rem',
+        1344: '84rem',
         1360: '85rem',
         1642: '102.625rem',
       },
@@ -118,6 +122,7 @@ module.exports = {
         50: '3.125rem',
         90: '5.625rem',
       },
+
       borderRadius: {
         6: '0.375rem',
         8: '0.5rem',

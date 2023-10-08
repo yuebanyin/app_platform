@@ -1,5 +1,4 @@
 import popular from '@/assets/image/common/gameLists/popular.png';
-import tournamentBg from '@/assets/image/common/gameLists/PopulatGames.png';
 import game1 from '@/assets/image/common/gameLists/game_1.png';
 import game2 from '@/assets/image/common/gameLists/game_2.png';
 import game3 from '@/assets/image/common/gameLists/game_3.png';
@@ -79,8 +78,8 @@ export function PopulatGames(props: PopulatGamesProps) {
       </div>
       <div className='flex flex-wrap items-center'>
         {dataList.map((item) => (
-          <BgImg url={item.src} isNoTheme className='w-262 h-218 mr-14 mb-14'>
-            <div className='w-262 h-218 rounded-10 bg-gameBlockBg pt-40 text-center hover:visible'>
+          <BgImg url={item.src} key={item.id} isNoTheme className='w-262 h-218 mr-14 mb-14'>
+            <div className='w-262 h-218 rounded-10 bg-gameBlockBg pt-40 text-center opacity-0 hover:opacity-100'>
               <div className='text-gameBlock text-18 mb-20'>{item.gameName}</div>
               <Button className='bg-btnGradPrimary text-white text-20 mx-auto' size='middle'>
                 START

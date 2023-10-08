@@ -10,3 +10,5 @@ export * from './loading';
 export * from './options';
 // arrow 箭头
 export * from './arrow';
+// swiper 轮播
+export * from './swiper';

@@ -43,8 +43,8 @@ export function MySwiperComponent(props: any) {
     <div className='swiper mySwiper w-1344'>
       <div className='swiper-wrapper'>
         {bannerList.map((item) => (
-          <div className='swiper-slide h-494'>
-            <Img src={item.url} key={item.id} isNoTheme className='h-494' />
+          <div key={item.id} className='swiper-slide h-494'>
+            <Img src={item.url} key={item.id} className='h-494' />
           </div>
         ))}
       </div>

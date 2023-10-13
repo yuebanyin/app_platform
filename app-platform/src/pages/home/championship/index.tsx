@@ -52,8 +52,8 @@ const rewardList = [
 /* 锦标赛 */
 export function Championship(props: ChampionshipProps) {
   return (
-    <div>
-      <div className='my-24 flex items-baseline'>
+    <div className='pb-30'>
+      <div className='mb-24 flex items-baseline'>
         <Img src={tournament} isNoTheme alt='tournament' className='w-24 mr-14' />
         <div className='text-white text-28'>TOURNAMENT</div>
       </div>

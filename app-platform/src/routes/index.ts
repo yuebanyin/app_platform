@@ -6,6 +6,7 @@ import Layout from '@/layouts';
 
 const Home = lazy(() /** 首页 */ => import('@/pages/home'));
 const Demo = lazy(() /** demo页面 */ => import('@/pages/demo'));
+const GameDetail = lazy(() /** 游戏详情页面 */ => import('@/pages/gameDetail'));
 
 export const routes = [
   {
@@ -19,6 +20,10 @@ export const routes = [
       {
         path: 'demo',
         element: LazyComponent({ lazyChildren: Demo }),
+      },
+      {
+        path: 'gameDetail',
+        element: LazyComponent({ lazyChildren: GameDetail }),
       },
     ],
   },

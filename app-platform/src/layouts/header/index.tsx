@@ -22,14 +22,6 @@ function Header() {
     <div className='flex'>
       <HeadLeft />
       <HeadTOP className='flex-1' />
-      {/* <ul className='flex'>
-        <li className='mr-10 p-2 cursor-pointer bg-yellow-100 text-primary' onClick={onChangeTheme}>
-          换肤
-        </li>
-        <li className='p-2 cursor-pointer bg-yellow-100 text-cyan-300 w-24 text-center' onClick={onChangeLanguage}>
-          {t('language')}
-        </li>
-      </ul> */}
     </div>
   );
 }

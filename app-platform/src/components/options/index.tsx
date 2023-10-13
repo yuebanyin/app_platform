@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Img } from '../img';
 import { ArrowDiv } from '../arrow';
+import nation1 from '@/assets/image/common/nation-1.png';
+import nation2 from '@/assets/image/common/nation-2.png';
+import nation3 from '@/assets/image/common/nation-3.png';
+import nation4 from '@/assets/image/common/nation-4.png';
 
 interface OptionProps {
   className?: string;
@@ -9,9 +13,31 @@ interface OptionProps {
   dataList?: any[];
   arrowIcon?: boolean;
 }
+const optionList = [
+  {
+    id: 1,
+    text: 'CH',
+    src: nation1,
+  },
+  {
+    id: 2,
+    text: 'ENG',
+    src: nation2,
+  },
+  {
+    id: 3,
+    text: 'UAE',
+    src: nation3,
+  },
+  {
+    id: 4,
+    text: 'BRA',
+    src: nation4,
+  },
+];
 
 export function Options(props: OptionProps) {
-  const { className, defaultId, dataList, arrowIcon = true } = props;
+  const { className, defaultId, dataList = optionList, arrowIcon = true } = props;
   const [activeId, setActiveId] = useState(defaultId || 1);
   const [show, setShow] = useState(false);
 
@@ -27,7 +53,7 @@ export function Options(props: OptionProps) {
     return '';
   };
   return (
-    <div>
+    <div className='z-10'>
       <div onClick={handleShow} className={`${className} rounded-10 px-18 mb-10 flex justify-between items-center bg-btnPrimary text-white `}>
         <div>{dataList[activeId - 1].text}</div>
         {arrowIcon && <ArrowDiv type='bottom' />}

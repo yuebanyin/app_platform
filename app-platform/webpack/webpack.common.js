@@ -20,6 +20,7 @@ module.exports = {
     path: _resolvePath("../dist"),
     clean: true,
     assetModuleFilename: "assets/[hash][ext]",
+    publicPath:'/', // 绝对路径
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],

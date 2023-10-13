@@ -13,7 +13,7 @@
  */
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import './index.scss';
+// import './index.scss';
 import { Loading } from '../loading';
 
 interface ButtonProps {
@@ -30,7 +30,7 @@ interface ButtonProps {
 }
 
 export const Button = memo((porps: ButtonProps) => {
-  const { text, className, onClick, isPromise, type = 'primary', size = 'middle', prefix, children, loading } = porps;
+  const { text, className, onClick, isPromise, type = 'primary', size = '', prefix, children, loading } = porps;
   const [isLoading, setIsLoading] = useState(false);
 
   // 异步请求时判断是否点击过
@@ -55,7 +55,7 @@ export const Button = memo((porps: ButtonProps) => {
       case 'large':
         return 'w-288 h-46 text-24 rounded-10';
       default:
-        return 'w-200 h-40 text-18 rounded-10';
+        return 'h-46 text-18 rounded-10';
     }
   }, [size]);
 
@@ -101,7 +101,7 @@ export const Button = memo((porps: ButtonProps) => {
   }, [prefix, isLoading, loading]);
 
   return (
-    <button type='button' onClick={handleClick} className={mergeClassName} disabled={Boolean(type === 'disabled')}>
+    <button type='button' onClick={handleClick} className={`${mergeClassName} flex justify-center items-center`} disabled={Boolean(type === 'disabled')}>
       {prefixNode}
       {text && <div className='bx-button-text'>{text}</div>}
       {children}

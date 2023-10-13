@@ -71,6 +71,8 @@
 		"webpack-merge": "^5.9.0"
 	},
 	"dependencies": {
+		"@ant-design/icons": "^5.2.6",
+		"antd": "4.24.12",
 		"bignumber.js": "^9.1.2",
 		"crypto-js": "^4.1.1",
 		"i18next": "^23.5.1",

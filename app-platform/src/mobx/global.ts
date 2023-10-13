@@ -9,7 +9,7 @@ export type GlobalStateType = 'theme' | 'languageList' | 'language' | 'showHeade
 export class GlobalState {
   constructor() {
     makeAutoObservable(this);
-    this.changeState = this.changeState.bind(this);
+    // this.changeState = this.changeState.bind(this);
   }
 
   // 主题色 默认blueyellow
@@ -34,6 +34,8 @@ export class GlobalState {
   changeState(type: GlobalStateType, value?: any) {
     this[type] = value;
   }
+
+  // b函数方法
 }
 
 // 利用createContext 创建storeContext

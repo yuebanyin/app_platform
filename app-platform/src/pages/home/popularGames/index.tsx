@@ -1,4 +1,4 @@
-import popular from '@/assets/image/common/gameLists/popular.png';
+import { useNavigate } from 'react-router-dom';
 import game1 from '@/assets/image/common/gameLists/game_1.png';
 import game2 from '@/assets/image/common/gameLists/game_2.png';
 import game3 from '@/assets/image/common/gameLists/game_3.png';
@@ -7,7 +7,8 @@ import game5 from '@/assets/image/common/gameLists/game_5.png';
 import game6 from '@/assets/image/common/gameLists/game_6.png';
 import game7 from '@/assets/image/common/gameLists/game_7.png';
 import game8 from '@/assets/image/common/gameLists/game_8.png';
-import { BgImg, Button, Img } from '@/components';
+import { ArrowDiv, BgImg, Button, Img } from '@/components';
+import { useNavigation } from '@/hooks';
 
 interface PopulatGamesProps {
   className?: string;
@@ -68,17 +69,22 @@ const gameList = [
 ];
 
 /* 锦标赛 */
-export function PopulatGames(props: PopulatGamesProps) {
-  const { titleSrc = popular, title = 'POPULAR GAME', dataList = gameList } = props;
+export function PopularGames(props: PopulatGamesProps) {
+  const { titleSrc, title = 'POPULAR GAME', dataList = gameList } = props;
+
+  const navigate = useNavigation();
+  const handleClick = (item?) => {
+    navigate(`gameDetail?gameId=${item.id}`);
+  };
   return (
-    <div>
-      <div className='my-24 flex items-baseline'>
+    <div className='pb-30'>
+      <div className='mb-24 flex items-baseline'>
         <Img src={titleSrc} isNoTheme alt='tournament' className='w-24 mr-14' />
         <div className='text-white text-28'>{title}</div>
       </div>
       <div className='flex flex-wrap items-center'>
         {dataList.map((item) => (
-          <BgImg url={item.src} key={item.id} isNoTheme className='w-262 h-218 mr-14 mb-14'>
+          <BgImg url={item.src} key={item.id} isNoTheme className='w-262 h-218 mr-14 mb-14' onClick={() => handleClick(item)}>
             <div className='w-262 h-218 rounded-10 bg-gameBlockBg pt-40 text-center opacity-0 hover:opacity-100'>
               <div className='text-gameBlock text-18 mb-20'>{item.gameName}</div>
               <Button className='bg-btnGradPrimary text-white text-20 mx-auto' size='middle'>
@@ -89,6 +95,10 @@ export function PopulatGames(props: PopulatGamesProps) {
           </BgImg>
         ))}
       </div>
+      <Button className='bg-btnPrimary text-white w-full mx-auto'>
+        SHOW MORE
+        <ArrowDiv type='bottom' className='ml-30' />
+      </Button>
     </div>
   );
 }

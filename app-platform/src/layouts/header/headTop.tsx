@@ -1,4 +1,4 @@
-import { ArrowDiv, Button, Img, Options, MySwiperComponent } from '@/components';
+import { Button, Options, MySwiperComponent } from '@/components';
 import nation1 from '@/assets/image/common/nation-1.png';
 import nation2 from '@/assets/image/common/nation-2.png';
 import nation3 from '@/assets/image/common/nation-3.png';
@@ -17,8 +17,13 @@ import gys6 from '@/assets/image/common/gameLists/gys6.png';
 import banner1 from '@/assets/image/common/gameLists/banner1.png';
 import banner2 from '@/assets/image/common/gameLists/banner2.png';
 import banner3 from '@/assets/image/common/gameLists/banner3.png';
+import popular from '@/assets/image/common/gameLists/popular.png';
+import collect from '@/assets/image/common/gameLists/collect.png';
+import original from '@/assets/image/common/gameLists/original.png';
 import { Championship } from '@/pages/home/championship';
-import { PopulatGames } from '@/pages/home/popularGames';
+import { PopularGames } from '@/pages/home/popularGames';
+import SupplierInfo from '@/pages/home/supplierInfo';
+import WinnerInfo from '@/pages/home/winnerInfo';
 
 interface HeadTopProps {
   className?: string;
@@ -112,7 +117,7 @@ function HeadTOP(props: HeadTopProps) {
     <div className={`${className} bg-conBg`}>
       <div>
         {/* 顶部全局操作按钮 */}
-        <div className='flex w-fit py-10 absolute right-[370px] z-10'>
+        <div className='flex w-fit py-10 absolute right-[23.125rem] z-10'>
           <Button size='mini' className='mr-16 text-white bg-signIn border-2 border-solid border-signBNormal'>
             SIGN IN
           </Button>
@@ -125,42 +130,21 @@ function HeadTOP(props: HeadTopProps) {
           {/* 轮播 */}
           <MySwiperComponent bannerList={bannerList} />
           {/* 这便是赢奖信息 */}
-          <div className='w-322 h-390 overflow-y-scroll no-scrollbar scrollbar-width-0 p-10 bg-menuBg rounded-b-10'>
-            <div className='mb-6 flex justify-center items-baseline'>
-              <Img src={rank} isNoTheme className='w-18 mr-8' />
-              <div className='text-white text-18 font-bold'>RECENT WINNERS</div>
-            </div>
-            {rankList?.map((item) => (
-              <div key={item.id} className='py-10 px-12 mb-6 bg-conBg rounded-6 flex justify-between items-center'>
-                <Img src={item?.src} className='w-38' isNoTheme alt='avatar' />
-                <div className='text-14 text-white'>
-                  <div>{item?.text1}</div>
-                  <div>{item?.text2}</div>
-                </div>
-                <div className='text-14 text-orange font-bold'>{item?.money}</div>
-              </div>
-            ))}
-          </div>
+          <WinnerInfo rankList={rankList} rankImg={rank} />
         </div>
         {/* 供应商 */}
-        <div className='flex bg-gysLineBg rounded-14 p-10 mx-24 z-10 relative bottom-[80px]'>
-          {gysList.map((item, i) => (
-            <div key={`${i + 1}`} className={`w-148 h-60 flex justify-center items-center ${i + 1 === gysList.length ? '' : 'mr-10'} hover:bg-gysActiveBg rounded-10 `}>
-              <Img src={item} isNoTheme alt='gys' />
-            </div>
-          ))}
-          <div className='flex justify-center items-center w-200 h-60 bg-btnPrimary rounded-10 text-white'>
-            <div className='text-18 mr-10'>All SUPPLIERS</div>
-            <ArrowDiv type='bottom' />
-          </div>
-        </div>
+        <SupplierInfo gysList={gysList} />
       </div>
 
       <div className='ml-24'>
+        {/* 热门游戏 */}
+        <PopularGames title='POPULAR GAME' titleSrc={popular} />
+        {/* 收藏游戏 */}
+        <PopularGames title='COLLECT' titleSrc={collect} />
         {/* 锦标赛 */}
         <Championship />
-        {/* 热门游戏 */}
-        <PopulatGames />
+        {/* 原创游戏 */}
+        <PopularGames title='ORIGINAL GAME' titleSrc={original} />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import 'antd/dist/antd.css';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import i18n from 'i18next';
@@ -7,6 +8,7 @@ import { routes } from '@/routes';
 import { zh, en } from '@/locales';
 import { lsGetItem, initRem } from '@/utils';
 import '@/styles/global.scss';
+import '@/styles/overrides.scss';
 
 // 设置多语言
 const resources = {

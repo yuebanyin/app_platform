@@ -27,6 +27,7 @@ module.exports = merge(baseConfig, {
     hot: true,
     liveReload: false,
     static: false,
+    // historyApiFallback:true, // 找不到页面返回首页
     client: {
       logging: "info",
       progress: true,

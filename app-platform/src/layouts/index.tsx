@@ -1,11 +1,11 @@
-// import { useOutlet } from 'react-router-dom';
+import { useOutlet } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useChangeTheme } from '@/hooks';
-import Header from './header';
-// import Footer from './footer';
+// import Header from './header';
+import HeadLeft from './header/headLeft';
 
 function Layout() {
-  // const CurrentOutlet = useOutlet();
+  const CurrentOutlet = useOutlet();
   const { initTheme } = useChangeTheme();
 
   useEffect(() => {
@@ -14,8 +14,12 @@ function Layout() {
 
   return (
     <div className='w-full h-full flex flex-col'>
-      <Header />
-      {/* <div className='flex-1 bg-primary '>{CurrentOutlet}</div> */}
+      {/* <Header /> */}
+
+      <div className='flex'>
+        <HeadLeft />
+        <div className='flex-1 bg-deepBg min-w-1600'>{CurrentOutlet}</div>
+      </div>
       {/* <Footer /> */}
     </div>
   );

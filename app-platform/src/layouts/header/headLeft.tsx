@@ -1,19 +1,20 @@
-import { memo } from 'react';
-import { Button, Img } from '@/components';
+import { memo, useCallback, useState } from 'react';
+import { BgImg, Button, Img } from '@/components';
 import avatarSrc from '@/assets/image/common/avatar.png';
+import { Obj } from '@/constants';
 // import purse from '@/assets/image/black/homeMenu/purse.png';
 // import history from '@/assets/image/black/homeMenu/history.png';
 
 const showAction = [
   {
-    id: 1,
+    id: 10,
     text: 'Purse',
-    src: '/homeMenu/purse.png',
+    src: '/homeMenu/qianbao.png',
   },
   {
-    id: 2,
+    id: 11,
     text: 'Purse',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/lishi.png',
   },
 ];
 
@@ -21,51 +22,66 @@ const menuList = [
   {
     id: 1,
     text: 'All Games',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/All Games.png',
   },
   {
     id: 2,
     text: 'Tournament',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Tournament.png',
   },
   {
     id: 3,
     text: 'Real Person',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Real Person.png',
   },
   {
     id: 4,
     text: 'Sports',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Sports.png',
   },
   {
     id: 5,
     text: 'Slots',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Slots.png',
   },
   {
     id: 6,
     text: 'Board Game',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Board Game.png',
   },
   {
     id: 7,
     text: 'Racehorse',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Racehorse.png',
   },
   {
     id: 8,
     text: 'Fishing Joy',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/Fishing Joy.png',
   },
   {
     id: 9,
     text: 'E-Sports',
-    src: '/homeMenu/history.png',
+    src: '/homeMenu/E-Sports.png',
   },
 ];
 
 function HeadLeft() {
+  const [activeId, setActiveId] = useState(1);
+
+  const iconCls = useCallback(
+    (item?) => {
+      const res = item.id === activeId ? 'bg-center' : 'hover:bg-right active:bg-center';
+      return res;
+    },
+    [activeId]
+  );
+
+  const handleMenu = (item: Obj) => {
+    if (item?.id && item.id !== activeId) {
+      setActiveId(item?.id);
+    }
+  };
   return (
     <div className='w-230 bg-menuBg pt-18'>
       <Img src='/logo.png' className='mx-34 h-44 mb-40' alt='logo' />
@@ -80,8 +96,15 @@ function HeadLeft() {
       </div>
       <div className='px-14 flex justify-between mb-40'>
         {showAction.map((item) => (
-          <div className='rounded-10 px-20 py-10 bg-menuTwo ' key={item.id}>
-            <Img className='w-48 h-48' src={item.src} alt={item.text} />
+          <div
+            className='rounded-10 px-20 py-10 bg-menuTwo '
+            key={item.id}
+            onClick={() => {
+              handleMenu(item);
+            }}
+          >
+            {/* <Img className='w-48 h-48' src={item.src} alt={item.text} /> */}
+            <BgImg className={`w-48 h-48 ${iconCls(item)}`} url={item.src} alt={item.text} />
             <div className='text-primary text-center'>{item.text}</div>
           </div>
         ))}
@@ -89,8 +112,14 @@ function HeadLeft() {
 
       <div>
         {menuList.map((item) => (
-          <div className={`flex flex-col justify-center items-center pb-24 rounded-16 ${item.id === 1 ? 'bg-menuActive text-white' : ''}`} key={item.id}>
-            <Img className='w-48 h-48' src={item.src} alt={item.text} />
+          <div
+            className={`flex flex-col justify-center items-center py-18 rounded-16 ${item.id === activeId ? 'bg-menuGradActive text-orange' : 'text-primary'}`}
+            key={item.id}
+            onClick={() => {
+              handleMenu(item);
+            }}
+          >
+            <BgImg className={`w-48 h-48 ${iconCls(item)}`} url={item.src} alt={item.text} />
             <div className='text-center text-20'>{item.text}</div>
           </div>
         ))}

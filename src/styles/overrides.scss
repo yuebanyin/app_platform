@@ -1,0 +1,51 @@
+
+// antd 样式覆盖
+
+.ant-select-selector, .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+  background-color: var(--pc-deep-bg-color);
+  // background-color: var(--pc-deep-bg-color) !important;
+}
+
+// 弹窗
+
+.ant-modal{
+  width: fit-content !important;
+  padding-bottom: unset;
+}
+.ant-modal-content{
+ background: none; 
+ min-width: 80rem;
+}
+
+.ant-form-item-label > label{
+  color: var(--pc-login-label-color);
+  font-size: 1.125rem;
+}
+
+.ant-form-item{
+  font-size: 1.125rem;
+  margin-bottom: 0;
+}
+.ant-input{
+  font-size: 1.125rem;
+  height: 3.625rem;
+  border-radius: 14px;
+  color: var(--pc-white-color);
+  background-color: var(--pc-login-input-bg);
+  border-color: var(--pc-login-input-border);
+}
+.ant-input:hover,.ant-input:focus, .ant-input-focused{
+  border: 2px solid #ACD7AF;
+  background: #304A41;
+}
+.ant-modal-close{
+  top: 2rem;
+  right: 2rem;
+
+}
+.ant-modal-close-x{
+  color: var(--pc-white-color);
+  font-size: 2.125rem;
+  line-height: unset;
+  font-weight: bold;
+}
